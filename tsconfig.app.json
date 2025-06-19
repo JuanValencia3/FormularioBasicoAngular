@@ -9,6 +9,7 @@
   "include": [
     "src/**/*.ts"
   ],
+  "files": ["src/main.ts"],
   "exclude": [
     "src/**/*.spec.ts"
   ]

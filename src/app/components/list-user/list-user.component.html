@@ -1,0 +1,44 @@
+@if (!loading) {
+<button (click)="redirect()" type="button">Crear</button>
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Activo</th>
+      <th>Edad</th>
+      <th>Rol</th>
+      <th>Fecha de creación</th>
+      <th>Teléfono</th>
+      <th>Dirección</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Mostrar usuarios -->
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.isActive ? "Sí" : "No" }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.role }}</td>
+      <td>{{ user.createdAt | date : "medium" }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.address }}</td>
+      <td>
+        <button type="button" (click)="edituser(user.id)">editar</button>
+        <button type="button" (click)="deleteuser(user.id)">Eliminar</button>
+      </td>
+    </tr>
+
+    <!-- Si no hay usuarios -->
+    <tr *ngIf="users.length === 0">
+      <td colspan="9">Sin usuarios</td>
+    </tr>
+  </tbody>
+</table>
+} @else {
+<p>Cargando...</p>
+}

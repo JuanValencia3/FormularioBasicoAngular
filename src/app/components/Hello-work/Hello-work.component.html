@@ -1,0 +1,30 @@
+<h2>Lista de Usuarios</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Activo</th>
+      <th>Edad</th>
+      <th>Rol</th>
+      <th>Fecha de creación</th>
+      <th>Teléfono</th>
+      <th>Dirección</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.isActive ? "Sí" : "No" }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.role }}</td>
+      <td>{{ user.createdAt | date : "medium" }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.address }}</td>
+    </tr>
+  </tbody>
+</table>

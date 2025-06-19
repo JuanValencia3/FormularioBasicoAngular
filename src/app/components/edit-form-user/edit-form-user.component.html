@@ -1,0 +1,114 @@
+<form
+  class="flex flex-col gap-2 p-4 bg-slate-200 w-full"
+  [formGroup]="form"
+  (ngSubmit)="saveusuar()"
+>
+  <label for="name">Nombre</label>
+  <input type="text" id="name" formControlName="name" />
+  @if (form.controls.name.invalid&&form.controls.name.touched) {
+  <div>
+    @if(form.controls.name.getError("required")){<span
+      >Este campo es requerido</span
+    >
+    } @if(form.controls.name.getError("minlength")){<span
+      >Este campo requiere minimo 2 caracteres</span
+    >
+    } @if(form.controls.name.getError("maxlength")){<span
+      >Este campo requiere maximo 50 caracteres</span
+    >
+    }
+  </div>
+
+  }
+  <label for="email">email</label>
+  <input type="text" id="email" formControlName="email" />
+  @if (form.controls.email.invalid&&form.controls.email.touched) {
+  <div>
+    @if(form.controls.email.getError("required")){<span
+      >Este campo es requerido</span
+    >
+    } @if(form.controls.email.getError("minlength")){<span
+      >Este campo requiere minimo 6 caracteres</span
+    >
+    } @if(form.controls.email.getError("maxlength")){<span
+      >Este campo requiere maximo 50 caracteres</span
+    >
+    } @if(form.controls.email.getError("email")){<span
+      >Este campo requiere una direccion de email</span
+    >
+    }
+  </div>
+  }
+  <label for="isActive">isActive</label>
+  <input type="checkbox" id="isActive" formControlName="isActive" />
+  @if (form.controls.isActive.invalid&&form.controls.isActive.touched) {
+  <div>
+    @if(form.controls.isActive.getError("required")){<span
+      >Este campo es requerido</span
+    >
+    }
+  </div>
+  }
+
+  <label for="age">age</label>
+  <input type="text" id="age" formControlName="age" />
+
+  @if (form.controls.age.invalid&&form.controls.age.touched) {
+  <div>
+    @if(form.controls.age.getError("required")){<span
+      >Este campo es requerido</span
+    >
+    } @if(form.controls.age.getError("min")){<span>Edad minima 1 año</span> }
+    @if(form.controls.age.getError("max")){<span>Edad maxima 100 años</span>
+    }
+  </div>
+
+  }
+  <label for="role">role</label>
+  <select type="text" id="role" formControlName="role">
+    <option value="admin">administrador</option>
+    <option value="user">Usuario</option>
+    <option value="moderator">moderador</option>
+  </select>
+
+  <label for="phone">phone</label>
+  <input type="text" id="phone" formControlName="phone" />
+  @if (form.controls.phone.invalid&&form.controls.phone.touched) {
+  <div>
+    @if(form.controls.phone.getError("required")){<span
+      >Este campo es requerido</span
+    >
+    } @if(form.controls.phone.getError("minlength")){<span
+      >Este campo requiere minimo 7 caracteres</span
+    >
+    } @if(form.controls.phone.getError("maxlength")){<span
+      >Este campo requiere maximo 10 caracteres</span
+    >
+    } @if(form.controls.phone.getError("pattern")){<span
+      >Este campo requiere numeros</span
+    >
+    }
+  </div>
+  }
+
+  <label for="address">address</label>
+  <input type="text" id="address" formControlName="address" />
+
+  @if (form.controls.address.invalid&&form.controls.address.touched) {
+  <div>
+    @if(form.controls.address.getError("required")){<span
+      >Este campo es requerido</span
+    >
+    } @if(form.controls.address.getError("minlength")){<span
+      >Este campo requiere minimo 2 caracteres</span
+    >
+    } @if(form.controls.address.getError("maxlength")){<span
+      >Este campo requiere maximo 100 caracteres</span
+    >
+    }
+  </div>
+
+  }
+  <button class="p-4 bg-slate-400" type="button">Cancelar</button>
+  <button class="p-4 bg-blue-500" type="submit">editar</button>
+</form>
